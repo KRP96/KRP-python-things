@@ -40,7 +40,11 @@ class Vacancy():
 
 
     #how many vacancies left in jobs
-    
+    def open_accountant_vacancies(self):
+        return self.accountant - len(self.accountant_appliers)
+
+    def open_software_developer_vacancies(self):
+        return self.software_developer - len(self.software_developer_appliers)
 
 
 vacancy = Vacancy(4, 2, 1, 3)

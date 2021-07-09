@@ -4,7 +4,10 @@ class Vacancy():
         self.software_developer = software_developer_vacancy
         self.manager = manager_vacancy
         self.director = director_vacancy
-        self.job_appliers = []
+        self.accountant_appliers = []
+        self.software_developer_appliers = []
+        self.manager_appliers = []
+        self.director_appliers = []
 
 
 

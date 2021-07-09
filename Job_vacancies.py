@@ -1,11 +1,11 @@
 class Vacancy():
-    def __init__(self, accountant_vacancy, software_developer_vacancy, manager_vacancy, director_vacancy):
+    def __init__(self, accountant_vacancies, software_developer_vacancies, manager_vacancies, director_vacancies):
 
         #job_vacancy values added to their self.jab_vacancy
-        self.accountant = accountant_vacancy
-        self.software_developer = software_developer_vacancy
-        self.manager = manager_vacancy
-        self.director = director_vacancy
+        self.accountant = accountant_vacancies
+        self.software_developer = software_developer_vacancies
+        self.manager = manager_vacancies
+        self.director = director_vacancies
 
         #create lists for appliers' names
         self.accountant_appliers = []
@@ -28,6 +28,7 @@ class Vacancy():
 
 
     #how many vacancies left in jobs
+    def open_vacancies
 
 
 vacancy = Vacancy(4, 2, 1, 3)

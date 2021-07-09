@@ -46,6 +46,9 @@ class Vacancy():
     def open_software_developer_vacancies(self):
         return self.software_developer - len(self.software_developer_appliers)
 
+    def open_manager_vacancies(self):
+        return self.manager - len(self.manager_appliers)
+
 
 vacancy = Vacancy(4, 2, 1, 3)
         

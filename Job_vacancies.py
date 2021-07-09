@@ -64,5 +64,23 @@ for applier in accountant_appliers:
 
 
 software_developer_appliers = ["Name7", "Name8", "Name9", "Name10", "Name11"]
+for applier in software_developer_appliers:
+    if vacancy.add_software_developer_appliers(applier):
+        print(f"{applier}, you pass the interview. You won this job.")
+    else:
+        print(f"{applier}, you fail the interview. Good luck for your future.")
+
 manager_appliers = ["Name12", "Name13", "Name14", "Name15", "Name16"]
+for applier in manager_appliers:
+    if vacancy.add_manager_appliers(applier):
+        print(f"{applier}, you pass the interview. You won this job.")
+    else:
+        print(f"{applier}, you fail the interview. Good luck for your future.")
+
 director_appliers = ["Name17", "Name18", "Name19", "Name20"]   
+for applier in director_appliers:
+    if vacancy.add_director_appliers(applier):
+        print(f"{applier}, you pass the interview. You won this job.")
+    else:
+        print(f"{applier}, you fail the interview. Good luck for your future.")
+

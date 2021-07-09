@@ -15,7 +15,10 @@ class Vacancy():
 
     #create add appliers functions
     def add_accountant_appliers(self, name):
+        if not self.open_accountant_vacancies():
+            return False
         self.accountant_appliers.append(name)
+        return True
 
     def add_software_developer_appliers(self, name):
         self.software_developer_appliers.append(name)
@@ -28,7 +31,7 @@ class Vacancy():
 
 
     #how many vacancies left in jobs
-    def open_vacancies
+    
 
 
 vacancy = Vacancy(4, 2, 1, 3)

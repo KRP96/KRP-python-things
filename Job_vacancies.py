@@ -21,7 +21,10 @@ class Vacancy():
         return True
 
     def add_software_developer_appliers(self, name):
+        if not self.open_software_developer_vacancies():
+            return False
         self.software_developer_appliers.append(name)
+        return True
 
     def add_manager_appliers(self, name):
         self.manager_appliers.append(name)

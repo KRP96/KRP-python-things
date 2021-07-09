@@ -33,7 +33,7 @@ class Vacancy():
         return True
 
     def add_director_appliers(self, name):
-        if not self.opne_director_vacancies():
+        if not self.open_director_vacancies():
             return False
         self.director_appliers.append(name)
         return True
@@ -48,6 +48,9 @@ class Vacancy():
 
     def open_manager_vacancies(self):
         return self.manager - len(self.manager_appliers)
+
+    def open_director_vacancies(self):
+        return self.director - len(self.director_appliers)
 
 
 vacancy = Vacancy(4, 2, 1, 3)

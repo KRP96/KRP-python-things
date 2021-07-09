@@ -27,7 +27,10 @@ class Vacancy():
         return True
 
     def add_manager_appliers(self, name):
+        if not self.open_manager_vacancies():
+            return False
         self.manager_appliers.append(name)
+        return True
 
     def add_director_appliers(self, name):
         self.director_appliers.append(name)

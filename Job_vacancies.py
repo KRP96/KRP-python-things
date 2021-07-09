@@ -9,6 +9,9 @@ class Vacancy():
         self.manager_appliers = []
         self.director_appliers = []
 
+    def add_accountant_appliers(self, name):
+        self.accountant_appliers.append(name)
+
 
 vacancy = Vacancy(4, 2, 1, 3)
         

@@ -56,5 +56,5 @@ class Vacancy():
 vacancy = Vacancy(4, 2, 1, 3)
 
 accountant_appliers = ["Name1", "Name2", "Name3", "Name4","Name5", "Name6"]
-
+software_developer_appliers = ["Name7", "Name8", "Name9", "Name10", "Name11"]
         

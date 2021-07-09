@@ -15,7 +15,8 @@ class Vacancy():
     def add_software_developer_appliers(self, name):
         self.software_developer_appliers.append(name)
 
-    
+    def add_manager_appliers(self, name):
+        self.manager_appliers.append(name)
 
 
 

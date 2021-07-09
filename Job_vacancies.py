@@ -10,5 +10,5 @@ class Vacancy():
         self.director_appliers = []
 
 
-
+vacancy = Vacancy(4, 2, 1, 3)
         

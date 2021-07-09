@@ -12,6 +12,13 @@ class Vacancy():
     def add_accountant_appliers(self, name):
         self.accountant_appliers.append(name)
 
+    def add_software_developer_appliers(self, name):
+        self.software_developer_appliers.append(name)
+
+    
+
+
+
 
 vacancy = Vacancy(4, 2, 1, 3)
         

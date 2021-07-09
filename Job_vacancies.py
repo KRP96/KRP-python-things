@@ -33,7 +33,10 @@ class Vacancy():
         return True
 
     def add_director_appliers(self, name):
+        if not self.opne_director_vacancies():
+            return False
         self.director_appliers.append(name)
+        return True
 
 
     #how many vacancies left in jobs

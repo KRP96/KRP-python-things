@@ -57,4 +57,5 @@ vacancy = Vacancy(4, 2, 1, 3)
 
 accountant_appliers = ["Name1", "Name2", "Name3", "Name4","Name5", "Name6"]
 software_developer_appliers = ["Name7", "Name8", "Name9", "Name10", "Name11"]
-manager_appliers = ["Name12", "Name13", "Name14", "Name15", "Name16"]      
+manager_appliers = ["Name12", "Name13", "Name14", "Name15", "Name16"]
+director_appliers = ["Name17", "Name18", "Name19", "Name20"]   

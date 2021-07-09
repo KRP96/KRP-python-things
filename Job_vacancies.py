@@ -18,6 +18,9 @@ class Vacancy():
     def add_manager_appliers(self, name):
         self.manager_appliers.append(name)
 
+    def add_director_appliers(self, name):
+        self.director_appliers.append(name)
+
 
 
 

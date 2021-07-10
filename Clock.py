@@ -4,7 +4,9 @@ from tkinter.ttk import *
 from time import strftime
 
 root = Tk()
-root.title("Clock")
+root.title("Clock-By-KRP")
+root.geometry("550x125")
+root.configure(bg="black")
 
 def time():
     string = strftime('%H:%M:%S %p')

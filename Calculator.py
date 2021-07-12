@@ -8,7 +8,7 @@ root = Tk()
 root.title("Scientific Calculator By KRP")
 root.configure(background="powder blue")
 root.resizable(width=False, height=False)
-root.geometry("472x497+0+0")
+root.geometry("472x530+0+0")
 
 calc = Frame(root)
 calc.grid()
@@ -134,6 +134,9 @@ btnExpm1= Button(calc, text="Exmp1", width=6, height=2, font=('arial', 20, 'bold
 btnlgamma= Button(calc, text="lgamma", width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg="powder blue",
                         ).grid(row=5, column=7, pady=1)
 
+lblDisplay = Label(calc, text="Scientific Calculator", font=('arial', 30, 'bold'), justify= CENTER)
+lblDisplay.grid(row=0, column=4, columnspan=4)
+
 #================================Menu and function=========================================================
 
 def iExit():
@@ -144,11 +147,11 @@ def iExit():
 
 def Scientific():
     root.resizable(width=False, height=False)
-    root.geometry("944x497+0+0")
+    root.geometry("944x530+0+0")
 
 def Standerd():
     root.resizable(width=False, height=False)
-    root.geometry("472x497+0+0")
+    root.geometry("472x530+0+0")
 
 #create file menubar option
 filemenu = Menu(menubar, tearoff= 0)

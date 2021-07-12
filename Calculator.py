@@ -13,8 +13,74 @@ root.geometry("472x530+0+0")
 calc = Frame(root)
 calc.grid()
 
+class Calc():
+    def __init__(self):
+        self.total =0
+        self.current = ""
+        self.input_value = True
+        self.check_sum = False
+        self.op =""
+        self.result = False
+
+    def numberEnter(self, num):
+        self.result = False
+        firstnum = txtDisplay.get()
+        secondnum = str(num)
+        if self.input_value:
+            self.current = secondnum
+            self.input_value =False
+        else:
+            if secondnum =='.':
+                if secondnum in firstnum:
+                    return
+            self.current = firstnum + secondnum
+        self.display(self.current)
+    
+    def sum_of_total(self):
+        self.result = True
+        self.current = float(self.current)
+        if self.check_sum == True:
+            self.valid_function()
+        else:
+            self.total = float(txtDisplay.get())
+
+    def display(self, value):
+        txtDisplay.delete(0, END)
+        txtDisplay.insert(0, value)
+
+    def valid_function(self):
+        if self.op == "add":
+            self.total +=self.current
+        if self.op == "sub":
+            self.total -=self.current
+        if self.op == "multi":
+            self.total *=self.current
+        if self.op == "divide":
+            self.total /=self.current
+        if self.op == "mod":
+            self.total %=self.current
+        self.input_value = True
+        self.check_sum = False
+        self.display(self.total)
+
+    def operation(self, op):
+        self.current = float(self.current)
+        if self.check_sum:
+            self.valid_function()
+        elif not self.result:
+            self.total = self.current
+            self.input_value = True
+        self.check_sum = True
+        self.op = op
+        self.result = False
+
+added_value = Calc()
+
+
+
 menubar = Menu(calc)
 
+added_value = Calc()
 txtDisplay = Entry(calc, font=('arial', 20, 'bold'), bg="white", width=31, justify=RIGHT, bd=2)
 txtDisplay.grid(row=0, column=0, columnspan=4 , padx=1)
 txtDisplay.insert(0,"0")
@@ -28,7 +94,7 @@ for j in range(2,5):
     for k in range(3):
         btn.append(Button(calc, width=6, height=2, font=('arial', 20, 'bold'), bd=2, text=numberpad[i]))
         btn[i].grid(row=j, column=k, pady=1)
-
+        btn[i]["command"] = lambda x = numberpad[i]: added_value.numberEnter(x)
         i +=1
 
 btnClear =Button(calc, text=chr(67), width=6  , height=2, font=('arial', 20, 'bold'), bd=2, 
@@ -53,7 +119,8 @@ btnDiv =Button(calc, text="÷", width=6  , height=2, font=('arial', 20, 'bold'),
                         bg="powder blue").grid(row=4, column=3, pady=1)
 
 btnZero =Button(calc, text="0", width=6  , height=2, font=('arial', 20, 'bold'), bd=2, 
-                        bg="powder blue").grid(row=5, column=0, pady=1)
+                        bg="powder blue", command = lambda: added_value.numberEnter(0)).grid(row=5, 
+                        column=0, pady=1)
 
 btnDot =Button(calc, text=".", width=6  , height=2, font=('arial', 20, 'bold'), bd=2, 
                         bg="powder blue").grid(row=5, column=1, pady=1)

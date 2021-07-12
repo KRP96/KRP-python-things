@@ -1,6 +1,6 @@
 from tkinter import*
 import math
-#import parser
+import parser
 import tkinter.messagebox
 
 #create, sized, background color changed, change can't resizeble and add title name. If we want to change the name root we can change any name of it
@@ -19,6 +19,7 @@ txtDisplay = Entry(calc, font=('arial', 20, 'bold'), bg="white", width=31, justi
 txtDisplay.grid(row=0, column=0, columnspan=4 , padx=1)
 txtDisplay.insert(0,"0")
 
+#Create buttons
 numberpad = "789456123"
 i=0
 btn= []

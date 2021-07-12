@@ -22,7 +22,7 @@ txtDisplay.insert(0,"0")
 numberpad = "789456123"
 i=0
 btn= []
-for j in range(3,5):
+for j in range(2,5):
     for k in range(3):
         btn.append(Button(calc, width=6, height=2, font=('arial', 20, 'bold'), bd=2, text=numberpad[i]))
         btn[i].grid(row=j, column=k, pady=1)

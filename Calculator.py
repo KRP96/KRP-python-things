@@ -74,6 +74,11 @@ class Calc():
         self.op = op
         self.result = False
 
+    def pi(self):
+        self.result = False
+        self.current = math.pi
+        self.display(self.current)
+
 added_value = Calc()
 
 
@@ -107,23 +112,28 @@ btnSq =Button(calc, text="√", width=6  , height=2, font=('arial', 20, 'bold'),
                         bg="powder blue").grid(row=1, column=2, pady=1)
 
 btnAdd =Button(calc, text="+", width=6  , height=2, font=('arial', 20, 'bold'), bd=2, 
-                        bg="powder blue").grid(row=1, column=3, pady=1)
+                        bg="powder blue", command = lambda: added_value.operation("add")).grid(row=1, 
+                        column=3, pady=1)
 
 btnSub =Button(calc, text="-", width=6  , height=2, font=('arial', 20, 'bold'), bd=2, 
-                        bg="powder blue").grid(row=2, column=3, pady=1)
+                        bg="powder blue", command = lambda: added_value.operation("sub")).grid(row=2, 
+                        column=3, pady=1)
 
 btnMult =Button(calc, text="x", width=6  , height=2, font=('arial', 20, 'bold'), bd=2, 
-                        bg="powder blue").grid(row=3, column=3, pady=1)
+                        bg="powder blue", command = lambda: added_value.operation("multi")).grid(row=3, 
+                        column=3, pady=1)
 
 btnDiv =Button(calc, text="÷", width=6  , height=2, font=('arial', 20, 'bold'), bd=2, 
-                        bg="powder blue").grid(row=4, column=3, pady=1)
+                        bg="powder blue", command = lambda: added_value.operation("devide")).grid(row=4, 
+                        column=3, pady=1)
 
 btnZero =Button(calc, text="0", width=6  , height=2, font=('arial', 20, 'bold'), bd=2, 
                         bg="powder blue", command = lambda: added_value.numberEnter(0)).grid(row=5, 
                         column=0, pady=1)
 
 btnDot =Button(calc, text=".", width=6  , height=2, font=('arial', 20, 'bold'), bd=2, 
-                        bg="powder blue").grid(row=5, column=1, pady=1)
+                        bg="powder blue", command = lambda: added_value.numberEnter(".")).grid(row=5, 
+                        column=1, pady=1)
 
 btnNegative =Button(calc, text=chr(177), width=6  , height=2, font=('arial', 20, 'bold'), bd=2, 
                         bg="powder blue").grid(row=5, column=2, pady=1)
@@ -134,7 +144,7 @@ btnEqual =Button(calc, text="=", width=6  , height=2, font=('arial', 20, 'bold')
 #==================================Scientific calculator===================================================
 
 btnPi= Button(calc, text="π", width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg="powder blue",
-                        ).grid(row=1, column=4, pady=1)
+                        command= added_value.pi).grid(row=1, column=4, pady=1)
 
 btnCos= Button(calc, text="Cos", width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg="powder blue",
                         ).grid(row=1, column=5, pady=1)

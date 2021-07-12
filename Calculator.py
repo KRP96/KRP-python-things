@@ -8,7 +8,7 @@ root = Tk()
 root.title("Scientific Calculator By KRP")
 root.configure(background="powder blue")
 root.resizable(width=False, height=False)
-root.geometry("475x568+0+0")
+root.geometry("472x490+0+0")
 
 calc = Frame(root)
 calc.grid()
@@ -30,6 +30,40 @@ for j in range(2,5):
 
         i +=1
 
+btnClear =Button(calc, text=chr(67), width=6  , height=2, font=('arial', 20, 'bold'), bd=2, 
+                        bg="powder blue").grid(row=1, column=0, pady=1)
+
+btnAllClear =Button(calc, text=chr(67) +chr(69), width=6  , height=2, font=('arial', 20, 'bold'), bd=2, 
+                        bg="powder blue").grid(row=1, column=1, pady=1)
+
+btnSq =Button(calc, text="√", width=6  , height=2, font=('arial', 20, 'bold'), bd=2, 
+                        bg="powder blue").grid(row=1, column=2, pady=1)
+
+btnAdd =Button(calc, text="+", width=6  , height=2, font=('arial', 20, 'bold'), bd=2, 
+                        bg="powder blue").grid(row=1, column=3, pady=1)
+
+btnSub =Button(calc, text="-", width=6  , height=2, font=('arial', 20, 'bold'), bd=2, 
+                        bg="powder blue").grid(row=2, column=3, pady=1)
+
+btnMult =Button(calc, text="x", width=6  , height=2, font=('arial', 20, 'bold'), bd=2, 
+                        bg="powder blue").grid(row=3, column=3, pady=1)
+
+btnDiv =Button(calc, text="÷", width=6  , height=2, font=('arial', 20, 'bold'), bd=2, 
+                        bg="powder blue").grid(row=4, column=3, pady=1)
+
+btnZero =Button(calc, text="0", width=6  , height=2, font=('arial', 20, 'bold'), bd=2, 
+                        bg="powder blue").grid(row=5, column=0, pady=1)
+
+btnDot =Button(calc, text=".", width=6  , height=2, font=('arial', 20, 'bold'), bd=2, 
+                        bg="powder blue").grid(row=5, column=1, pady=1)
+
+btnNegative =Button(calc, text="+/-", width=6  , height=2, font=('arial', 20, 'bold'), bd=2, 
+                        bg="powder blue").grid(row=5, column=2, pady=1)
+
+btnEqual =Button(calc, text="=", width=6  , height=2, font=('arial', 20, 'bold'), bd=2, 
+                        bg="powder blue").grid(row=5, column=3, pady=1)
+
+
 #================================Menu and function=======================================
 
 def iExit():
@@ -44,7 +78,7 @@ def Scientific():
 
 def Standerd():
     root.resizable(width=False, height=False)
-    root.geometry("480x568+0+0")
+    root.geometry("472x490+0+0")
 
 #create file menubar option
 filemenu = Menu(menubar, tearoff= 0)

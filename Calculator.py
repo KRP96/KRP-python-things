@@ -8,7 +8,7 @@ root = Tk()
 root.title("Scientific Calculator By KRP")
 root.configure(background="powder blue")
 root.resizable(width=False, height=False)
-root.geometry("472x530+0+0")
+root.geometry("472x545+0+0")
 
 calc = Frame(root)
 calc.grid()
@@ -74,9 +74,123 @@ class Calc():
         self.op = op
         self.result = False
 
+    def Clear_Entry(self):
+        self.result = False
+        self.current = "0"
+        self.display(0)
+        self.input_value = True
+
+    def All_Clear_Entry(self):
+        self.Clear_Entry()
+        self.total = 0
+
+    def Negative(self):
+        self.result = False
+        self.current = -(float(txtDisplay.get()))
+
+    def squared(self):
+        self.result = False
+        self.current = math.sqrt (float(txtDisplay.get()))
+        self.display(self.current)
+
     def pi(self):
         self.result = False
         self.current = math.pi
+        self.display(self.current)
+
+    def tau(self):
+        self.result = False
+        self.current = math.tau
+        self.display(self.current)
+
+    def e(self):
+        self.result = False
+        self.current = math.e
+        self.display(self.current)
+
+    def log(self):
+        self.result = False
+        self.current = math.log(float(txtDisplay.get()))
+        self.display(self.current)
+
+    def exp(self):
+        self.result = False
+        self.current = math.exp(float(txtDisplay.get()))
+        self.display(self.current)
+
+    def sin(self):
+        self.result = False
+        self.current = math.sin(float(txtDisplay.get()))
+        self.display(self.current)
+
+    def sinh(self):
+        self.result = False
+        self.current = math.sinh(float(txtDisplay.get()))
+        self.display(self.current)
+
+    def cos(self):
+        self.result = False
+        self.current = math.cos(float(txtDisplay.get()))
+        self.display(self.current)
+
+    def cosh(self):
+        self.result = False
+        self.current = math.cosh(float(txtDisplay.get()))
+        self.display(self.current)
+
+    def tan(self):
+        self.result = False
+        self.current = math.tan(float(txtDisplay.get()))
+        self.display(self.current)
+
+    def tanh(self):
+        self.result = False
+        self.current = math.tanh(float(txtDisplay.get()))
+        self.display(self.current)
+
+    def asinh(self):
+        self.result = False
+        self.current = math.asinh(float(txtDisplay.get()))
+        self.display(self.current)
+
+    def acosh(self):
+        self.result = False
+        self.current = math.acosh(float(txtDisplay.get()))
+        self.display(self.current)
+
+    def atanh(self):
+        self.result = False
+        self.current = math.atanh(float(txtDisplay.get()))
+        self.display(self.current)
+
+    def log2(self):
+        self.result = False
+        self.current = math.log2(float(txtDisplay.get()))
+        self.display(self.current)
+
+    def log1p(self):
+        self.result = False
+        self.current = math.log1p(float(txtDisplay.get()))
+        self.display(self.current)
+
+    def log10(self):
+        self.result = False
+        self.current = math.log10(float(txtDisplay.get()))
+        self.display(self.current)
+
+    def lgamma(self):
+        self.result = False
+        self.current = math.lgamma(float(txtDisplay.get()))
+        self.display(self.current)
+
+    def expm1(self):
+        self.result = False
+        self.current = math.expm1(float(txtDisplay.get()))
+        self.display(self.current)
+
+    def degrees(self):
+        self.result = False
+        self.current = math.degrees(float(txtDisplay.get()))
         self.display(self.current)
 
 added_value = Calc()
@@ -102,14 +216,14 @@ for j in range(2,5):
         btn[i]["command"] = lambda x = numberpad[i]: added_value.numberEnter(x)
         i +=1
 
-btnClear =Button(calc, text=chr(67), width=6  , height=2, font=('arial', 20, 'bold'), bd=2, 
-                        bg="powder blue").grid(row=1, column=0, pady=1)
+btnClear =Button(calc, text=chr(67), width=6  , height=2, font=('arial', 20, 'bold'), bd=2, bg="powder blue", 
+                        command=added_value.All_Clear_Entry).grid(row=1, column=0, pady=1)
 
-btnAllClear =Button(calc, text=chr(67) +chr(69), width=6  , height=2, font=('arial', 20, 'bold'), bd=2, 
-                        bg="powder blue").grid(row=1, column=1, pady=1)
+btnAllClear =Button(calc, text=chr(67) +chr(69), width=6  , height=2, font=('arial', 20, 'bold'), bd=2, bg="powder blue", 
+                        command=added_value.Clear_Entry).grid(row=1, column=1, pady=1)
 
-btnSq =Button(calc, text="√", width=6  , height=2, font=('arial', 20, 'bold'), bd=2, 
-                        bg="powder blue").grid(row=1, column=2, pady=1)
+btnSq =Button(calc, text="√", width=6  , height=2, font=('arial', 20, 'bold'), bd=2, bg="powder blue",
+                        command=added_value.squared).grid(row=1, column=2, pady=1)
 
 btnAdd =Button(calc, text="+", width=6  , height=2, font=('arial', 20, 'bold'), bd=2, 
                         bg="powder blue", command = lambda: added_value.operation("add")).grid(row=1, 
@@ -139,7 +253,7 @@ btnNegative =Button(calc, text=chr(177), width=6  , height=2, font=('arial', 20,
                         bg="powder blue").grid(row=5, column=2, pady=1)
 
 btnEqual =Button(calc, text="=", width=6  , height=2, font=('arial', 20, 'bold'), bd=2, 
-                        bg="powder blue").grid(row=5, column=3, pady=1)
+                        bg="powder blue", command=added_value.sum_of_total).grid(row=5, column=3, pady=1)
 
 #==================================Scientific calculator===================================================
 
@@ -147,72 +261,78 @@ btnPi= Button(calc, text="π", width=6, height=2, font=('arial', 20, 'bold'), bd
                         command= added_value.pi).grid(row=1, column=4, pady=1)
 
 btnCos= Button(calc, text="Cos", width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg="powder blue",
-                        ).grid(row=1, column=5, pady=1)
+                       command=added_value.cos ).grid(row=1, column=5, pady=1)
 
 btnTan= Button(calc, text="Tan", width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg="powder blue",
-                        ).grid(row=1, column=6, pady=1)
+                        command=added_value.tan).grid(row=1, column=6, pady=1)
 
 btnSin= Button(calc, text="Sin", width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg="powder blue",
-                        ).grid(row=1, column=7, pady=1)
+                        command=added_value.sin).grid(row=1, column=7, pady=1)
 
 #===========================================================================================================
 
 btn2Pi= Button(calc, text="2π", width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg="powder blue",
-                        ).grid(row=2, column=4, pady=1)
+                        command= added_value.tau).grid(row=2, column=4, pady=1)
 
 btnCosh= Button(calc, text="Cosh", width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg="powder blue",
-                        ).grid(row=2, column=5, pady=1)
+                        command= added_value.cosh).grid(row=2, column=5, pady=1)
 
 btnTanh= Button(calc, text="Tanh", width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg="powder blue",
-                        ).grid(row=2, column=6, pady=1)
+                        command= added_value.tanh).grid(row=2, column=6, pady=1)
 
 btnSinh= Button(calc, text="Sinh", width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg="powder blue",
-                        ).grid(row=2, column=7, pady=1)
+                        command= added_value.sinh).grid(row=2, column=7, pady=1)
 
 #===========================================================================================================
 
 btnlog= Button(calc, text="Log", width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg="powder blue",
-                        ).grid(row=3, column=4, pady=1)
+                        command= added_value.log).grid(row=3, column=4, pady=1)
 
 btnExp= Button(calc, text="Exp", width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg="powder blue",
-                        ).grid(row=3, column=5, pady=1)
+                        command= added_value.exp).grid(row=3, column=5, pady=1)
 
 btnMod= Button(calc, text="Mod", width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg="powder blue",
-                        ).grid(row=3, column=6, pady=1)
+                        command= lambda: added_value.operation("mod")).grid(row=3, column=6, pady=1)
 
 btnE= Button(calc, text="e", width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg="powder blue",
-                        ).grid(row=3, column=7, pady=1)
+                        command=added_value.e).grid(row=3, column=7, pady=1)
 
 #===========================================================================================================
 
 btnlog2= Button(calc, text="Log2", width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg="powder blue",
-                        ).grid(row=4, column=4, pady=1)
+                        command=added_value.log2).grid(row=4, column=4, pady=1)
 
 btnDeg= Button(calc, text="Deg", width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg="powder blue",
-                        ).grid(row=4, column=5, pady=1)
+                        command=added_value.degrees).grid(row=4, column=5, pady=1)
 
 btnacosh= Button(calc, text="acosh", width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg="powder blue",
-                        ).grid(row=4, column=6, pady=1)
+                        command=added_value.acosh).grid(row=4, column=6, pady=1)
 
 btnasinh= Button(calc, text="asinh", width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg="powder blue",
-                        ).grid(row=4, column=7, pady=1)
+                        command=added_value.asinh).grid(row=4, column=7, pady=1)
 
 #===========================================================================================================
 
 btnlog10= Button(calc, text="Log10", width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg="powder blue",
-                        ).grid(row=5, column=4, pady=1)
+                        command=added_value.log10).grid(row=5, column=4, pady=1)
 
 btnlog1p= Button(calc, text="Log1p", width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg="powder blue",
-                        ).grid(row=5, column=5, pady=1)
+                        command=added_value.log1p).grid(row=5, column=5, pady=1)
 
 btnExpm1= Button(calc, text="Exmp1", width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg="powder blue",
-                        ).grid(row=5, column=6, pady=1)
+                        command=added_value.expm1).grid(row=5, column=6, pady=1)
 
 btnlgamma= Button(calc, text="lgamma", width=6, height=2, font=('arial', 20, 'bold'), bd=4, bg="powder blue",
-                        ).grid(row=5, column=7, pady=1)
+                         command=added_value.lgamma).grid(row=5, column=7, pady=1)
 
 lblDisplay = Label(calc, text="Scientific Calculator", font=('arial', 30, 'bold'), justify= CENTER)
 lblDisplay.grid(row=0, column=4, columnspan=4)
+
+lblDisplay = Label(calc, text="Created by Kavinda Rashmika Peiris", font=('arial', 10,'bold'), justify=CENTER)
+lblDisplay.grid(row=6, column=0, columnspan=4 )
+
+lblDisplay = Label(calc, text="Created by Kavinda Rashmika Peiris", font=('arial', 10,'bold'), justify=CENTER)
+lblDisplay.grid(row=6, column=4, columnspan=4 )
 
 #================================Menu and function=========================================================
 
@@ -224,11 +344,11 @@ def iExit():
 
 def Scientific():
     root.resizable(width=False, height=False)
-    root.geometry("944x530+0+0")
+    root.geometry("944x545+0+0")
 
 def Standerd():
     root.resizable(width=False, height=False)
-    root.geometry("472x530+0+0")
+    root.geometry("472x545+0+0")
 
 #create file menubar option
 filemenu = Menu(menubar, tearoff= 0)

@@ -4,6 +4,7 @@ import pywhatkit
 import datetime
 import wikipedia
 import pyjokes
+import sys
 
 listener = sr.Recognizer()
 engine = pyttsx3.init()
@@ -31,7 +32,11 @@ def take_command():
 
 def run_alexa():
     command = take_command()
-    print(command)
+    if  'goodbye alexa' in command:
+        sys.exit(run_alexa())
+
+    #print(command)
+
     if 'play' in command:
         song = command.replace('play', '')
         talk('playing' + song)
@@ -57,5 +62,7 @@ def run_alexa():
         print(info)
         talk(info)
 
+
 while True:
-    run_alexa()
+    run_alexa()    
+    
